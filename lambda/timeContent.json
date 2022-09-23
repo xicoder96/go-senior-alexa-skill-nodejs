@@ -1,0 +1,28 @@
+{
+    "type": "APLA",
+    "version": "0.91",
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "item": {
+            "type": "Sequencer",
+            "description": "This sample plays a series of audio clips one after another.",
+            "items": [
+              {
+                                        "type": "Audio",
+                                        "source": "https://d2bhc2eaizqsmh.cloudfront.net/music/deep-relaxation-11497.mp2"
+                                     },
+                                            {
+                                        "type": "Silence",
+                                        "duration": 3000
+                                    },
+                                       {
+                                        "type": "Speech",
+                                        "content": "If you need more time to complete the exercise say time please. Or, if you need me to repeat the steps, please say repeat. Once you are done with the exercise please say stop. What is your choice?"
+                                    }
+                                 
+            ]
+        }
+    }
+}

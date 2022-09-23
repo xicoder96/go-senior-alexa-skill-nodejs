@@ -1,0 +1,248 @@
+{
+    "type": "APL",
+    "version": "2022.1",
+    "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+    "settings": {},
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.5.0"
+        },
+        {
+            "name": "alexa-styles",
+            "version": "1.4.0"
+        }
+    ],
+    "resources": [],
+    "styles": {},
+    "onMount": [],
+    "graphics": {},
+    "commands": {},
+    "layouts": {},
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "alignItems": "stretch",
+                "justifyContent": "spaceAround",
+                "items": [
+                    {
+                        "type": "AlexaBackground",
+                        "backgroundImageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/response_builder/background-green.png",
+                        "backgroundBlur": true,
+                        "overlayNoise": true,
+                        "overlayGradient": true
+                    },
+                    {
+                        "type": "AlexaHeader",
+                        "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                        "headerTitle": "Go Senior",
+                        "headerSubtitle": "Health is wealth",
+                        "headerDivider": true,
+                        "headerBackgroundColor": "#194D1F"
+                    },
+                    {
+                        "items": [
+                            {
+                                "items": [
+                                    {
+                                        "fontStyle": "italic",
+                                        "text": "Welcome to Go Senior",
+                                        "fontWeight": "900",
+                                        "fontSize": "@fontSize4XLarge",
+                                        "textAlign": "center",
+                                        "textAlignVertical": "center",
+                                        "fontFamily": "@fontFamilyRomanSans",
+                                        "letterSpacing": "@letterSpacingExpanded\t",
+                                        "type": "Text",
+                                        "width": "100vw",
+                                        "id": "changingColorDemoFast",
+                                        "color": "${textColorArray[(Time.milliseconds(localTime)) % 10]}",
+                                        "bind": [
+                                            {
+                                                "name": "textColorArray",
+                                                "value": [
+                                                    "red",
+                                                    "orangered",
+                                                    "darkorange",
+                                                    "orange",
+                                                    "gold",
+                                                    "yellow",
+                                                    "gold",
+                                                    "orange",
+                                                    "darkorange",
+                                                    "orangered"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "backgroundColor": "black",
+                                "type": "Frame",
+                                "width": "100vw",
+                                "alignSelf": "auto"
+                            }
+                        ],
+                        "alignItems": "stretch",
+                        "justifyContent": "spaceAround",
+                        "type": "Container"
+                    },
+                    {
+                        "type": "Frame",
+                        "alignSelf": "center",
+                        "items": [
+                            {
+                                "text": "Select the level",
+                                "textAlign": "center",
+                                "fontStyle": "italic",
+                                "fontSize": "@fontSizeMedium",
+                                "type": "Text"
+                            }
+                        ]
+                    },
+                    {
+                        "direction": "row",
+                        "alignItems": "stretch",
+                        "justifyContent": "spaceAround",
+                        "shrink": 1,
+                        "alignSelf": "auto",
+                        "type": "Container",
+                        "items": [
+                            {
+                                "type": "AlexaButton",
+                                "buttonText": "Easy",
+                                "theme": "dark",
+                                "buttonStyle": "ingress",
+                                "id": "easy",
+                                "primaryAction": {
+                                    "type": "SendEvent",
+                                    "arguments": [
+                                        "textWasPressed",
+                                        "Send this data to the skill"
+                                    ],
+                                    "components": [
+                                        "idForTheTextComponent"
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "AlexaButton",
+                                "buttonText": "Medium",
+                                "buttonStyle": "ingress",
+                                "id": "medium",
+                                "primaryAction": {
+                                    "type": "SendEvent",
+                                    "arguments": [
+                                        "textWasPressed",
+                                        "Send this data to the skill"
+                                    ],
+                                    "components": [
+                                        "idForTheTextComponent"
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "AlexaButton",
+                                "buttonText": "Difficult",
+                                "buttonStyle": "ingress",
+                                "id": "difficult",
+                                "primaryAction": {
+                                    "type": "SendEvent",
+                                    "arguments": [
+                                        "textWasPressed",
+                                        "Send this data to the skill"
+                                    ],
+                                    "components": [
+                                        "idForTheTextComponent"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "AlexaFooter",
+                        "hintText": "Alexa, select medium"
+                    }
+                ],
+                "type": "Container",
+                "when": "${@viewportProfile != @hubRoundSmall}"
+            },
+            {
+                "alignItems": "stretch",
+                "justifyContent": "spaceAround",
+                "items": [
+                    {
+                        "type": "AlexaBackground",
+                        "backgroundImageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/response_builder/background-green.png",
+                        "backgroundBlur": true,
+                        "overlayNoise": true,
+                        "overlayGradient": true
+                    },
+                    {
+                        "type": "AlexaHeader",
+                        "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                        "headerTitle": "Go Senior",
+                        "headerSubtitle": "Health is wealth",
+                        "headerDivider": true,
+                        "headerBackgroundColor": "#194D1F"
+                    },
+                    {
+                        "items": [
+                            {
+                                "items": [
+                                    {
+                                        "fontStyle": "italic",
+                                        "text": "Welcome to Go Senior",
+                                        "fontWeight": "900",
+                                        "fontSize": "@fontSize4XLarge",
+                                        "textAlign": "center",
+                                        "textAlignVertical": "center",
+                                        "fontFamily": "@fontFamilyRomanSans",
+                                        "letterSpacing": "@letterSpacingExpanded\t",
+                                        "type": "Text",
+                                        "width": "100vw",
+                                        "id": "changingColorDemoFast",
+                                        "color": "${textColorArray[(Time.milliseconds(localTime)) % 10]}",
+                                        "bind": [
+                                            {
+                                                "name": "textColorArray",
+                                                "value": [
+                                                    "red",
+                                                    "orangered",
+                                                    "darkorange",
+                                                    "orange",
+                                                    "gold",
+                                                    "yellow",
+                                                    "gold",
+                                                    "orange",
+                                                    "darkorange",
+                                                    "orangered"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "backgroundColor": "black",
+                                "type": "Frame",
+                                "width": "100vw",
+                                "alignSelf": "auto"
+                            }
+                        ],
+                        "alignItems": "stretch",
+                        "justifyContent": "spaceAround",
+                        "type": "Container"
+                    },
+                    {
+                        "type": "AlexaFooter",
+                        "hintText": "Alexa, select medium"
+                    }
+                ],
+                "type": "Container",
+                "when": "${@viewportProfile == @hubRoundSmall}"
+            }
+        ]
+    }
+}

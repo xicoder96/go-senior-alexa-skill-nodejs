@@ -1,0 +1,168 @@
+{
+  "type": "APL",
+  "version": "1.8",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+      {
+          "name": "alexa-layouts",
+          "version": "1.5.0"
+      },
+      {
+          "name": "alexa-styles",
+          "version": "1.4.0"
+      },
+      {
+          "name": "alexa-viewport-profiles",
+          "version": "1.4.0"
+      }
+  ],
+  "styles": {},
+  "onMount": [],
+  "resources": [
+      {
+          "dimensions": {
+              "barStroke": "26dp",
+              "containerSize": "248dp"
+          },
+          "numbers": {
+              "circleRadius": 100,
+              "containerSizeNum": 248
+          }
+      }
+  ],
+  "graphics": {
+      "CircularProgressBar": {
+          "type": "AVG",
+          "version": "1.1",
+          "parameters": [
+              {
+                  "name": "progressValue",
+                  "type": "number",
+                  "default": 0
+              },
+              {
+                  "name": "totalValue",
+                  "type": "number",
+                  "default": 1
+              },
+              "progressFillColor"
+          ],
+          "width": "@containerSize",
+          "height": "@containerSize",
+          "items": [
+              {
+                  "type": "group",
+                  "translateY": "${@containerSizeNum/2}",
+                  "translateX": "${@containerSizeNum/2}",
+                  "bind": [
+                      {
+                          "name": "progressValueAngle",
+                          "value": "${(progressValue/totalValue) * 360 * (Math.PI/180)}"
+                      }
+                  ],
+                  "items": [
+                      {
+                          "description": "Radial track bar",
+                          "type": "path",
+                          "pathData": "M0,-${@circleRadius} A${@circleRadius},${@circleRadius},0,1,1,${@circleRadius * Math.sin((2*Math.PI) - 0.0001)},${-@circleRadius * Math.cos((2*Math.PI) - 0.0001)}",
+                          "stroke": "@colorComponent",
+                          "strokeOpacity": 0.5,
+                          "strokeWidth": "@barStroke",
+                          "strokeLineCap": "square"
+                      },
+                      {
+                          "description": "Radial progress fill",
+                          "type": "path",
+                          "pathData": "M0,-${@circleRadius} A${@circleRadius},${@circleRadius},0,${progressValueAngle >= Math.PI ? 1 : 0},1,${@circleRadius * Math.sin(progressValueAngle)},${-@circleRadius * Math.cos(progressValueAngle)}",
+                          "stroke": "${progressFillColor != @colorComponent ? progressFillColor : @colorComponent}",
+                          "strokeWidth": "@barStroke",
+                          "strokeOpacity": "${progressValue <= 0 ? 0 : 1}",
+                          "strokeLineCap": "square"
+                      }
+                  ]
+              }
+          ]
+      }
+  },
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+      "parameters": [
+          "payload"
+      ],
+      "items": [
+          {
+              "items": [
+                  {
+                      "type": "AlexaHeader",
+                      "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                      "headerTitle": "Go Senior",
+                      "headerSubtitle": "Health is wealth",
+                      "headerDivider": true,
+                      "headerBackgroundColor": "#194D1F"
+                  },
+                  {
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "items": [
+                          {
+                              "type": "Container",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "width": "@containerSize",
+                              "height": "@containerSize",
+                              "items": [
+                                  {
+                                      "type": "VectorGraphic",
+                                      "source": "CircularProgressBar",
+                                      "grow": 1,
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "scale": "best-fit",
+                                      "align": "center",
+                                      "position": "absolute",
+                                      "progressValue": "${counter}",
+                                      "totalValue": "${totalValue}",
+                                      "progressFillColor": "green"
+                                  },
+                                  {
+                                      "type": "Text",
+                                      "position": "absolute",
+                                      "textAlign": "center",
+                                      "textAlignVertical": "center",
+                                      "style": "textStyleDisplay3",
+                                      "fontWeight": "700",
+                                      "text": "${counter}"
+                                  }
+                              ]
+                          }
+                      ],
+                      "type": "Container",
+                      "bind": [
+                          {
+                              "name": "time",
+                              "type": "number",
+                              "value": "${elapsedTime / 1000}"
+                          },
+                          {
+                              "name": "totalValue",
+                              "type": "integer",
+                              "value": 50
+                          },
+                          {
+                              "name": "counter",
+                              "type": "integer",
+                              "value": "${time > totalValue ? 0 : totalValue - time}"
+                          }
+                      ],
+                      "width": "100vw",
+                      "height": "80vh"
+                  }
+              ],
+              "justifyContent": "spaceAround",
+              "type": "Container"
+          }
+      ]
+  }
+}

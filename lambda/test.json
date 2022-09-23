@@ -1,0 +1,200 @@
+{
+    "type": "APL",
+    "version": "2022.1",
+    "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.5.0"
+        },
+        {
+            "name": "alexa-styles",
+            "version": "1.4.0"
+        },
+        {
+            "name": "alexa-viewport-profiles",
+            "version": "1.4.0"
+        }
+    ],
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "pageDirection": "horizontal",
+                "type": "Pager",
+                "onMount": [
+                    {
+                        "type": "AutoPage",
+                        "componentId": "my-pager",
+                        "duration": 5000,
+                        "delay": 5000
+                    }
+                ],
+                "id": "my-pager",
+                "width": "100vw",
+                "height": "100vh",
+                "items": [
+                    {
+                        "type": "Container",
+                        "items": [
+                            {
+                                "justifyContent": "spaceAround",
+                                "type": "Container",
+                                "when": "${@viewportProfile != @hubRoundSmall}",
+                                "items": [
+                                    {
+                                        "type": "AlexaHeader",
+                                        "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                                        "headerTitle": "Go Senior",
+                                        "headerSubtitle": "Health is wealth",
+                                        "headerDivider": true,
+                                        "headerBackgroundColor": "#194D1F"
+                                    },
+                                    {
+                                        "direction": "row",
+                                        "justifyContent": "spaceAround",
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "justifyContent": "spaceAround",
+                                                "type": "Container",
+                                                "width": "50vw",
+                                                "items": [
+                                                    {
+                                                        "text": "Marjyasana",
+                                                        "fontSize": "@fontSize3XLarge",
+                                                        "color": "yellow",
+                                                        "type": "Text"
+                                                    },
+                                                    {
+                                                        "text": "Marjaryasana  also known as cat pose. Marjaryasana is thought to help with stress relief by soothing the mind.",
+                                                        "fontSize": "@fontSizeSmall",
+                                                        "type": "Text"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "AlexaImage",
+                                                "imageHeight": "60vh",
+                                                "imageSource": "https://d2bhc2eaizqsmh.cloudfront.net/images/yoga-poses/Marjaryasana.PNG",
+                                                "imageScale": "best-fit"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "AlexaFooter",
+                                        "hintText": "Alexa, what is the advantage of this exercise"
+                                    }
+                                ]
+                            },
+                            {
+                                "justifyContent": "start",
+                                "type": "Container",
+                                "when": "${@viewportProfile == @hubRoundSmall}",
+                                "items": [
+                                    {
+                                        "direction": "column",
+                                        "justifyContent": "start",
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "type": "AlexaHeader",
+                                                "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                                                "headerTitle": "Go Senior",
+                                                "headerSubtitle": "Health is wealth",
+                                                "headerDivider": true,
+                                                "headerBackgroundColor": "#194D1F"
+                                            },
+                                            {
+                                                "type": "AlexaImage",
+                                                "imageHeight": "60vh",
+                                                "imageSource": "https://d2bhc2eaizqsmh.cloudfront.net/images/yoga-poses/Marjaryasana.PNG",
+                                                "imageScale": "best-fit",
+                                                "imageWidth": "100vw"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "direction": "column",
+                        "type": "Container",
+                        "items": [
+                            {
+                                "direction": "column",
+                                "justifyContent": "spaceAround",
+                                "type": "Container",
+                                "when": "${@viewportProfile != @hubRoundSmall}",
+                                "items": [
+                                    {
+                                        "type": "AlexaHeader",
+                                        "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                                        "headerTitle": "Go Senior",
+                                        "headerSubtitle": "Health is wealth",
+                                        "headerDivider": true,
+                                        "headerBackgroundColor": "#194D1F"
+                                    },
+                                    {
+                                        "alignItems": "center",
+                                        "justifyContent": "start",
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "type": "AlexaImage",
+                                                "imageSource": "https://d2bhc2eaizqsmh.cloudfront.net/images/yoga-poses/Marjaryasana.PNG",
+                                                "imageScale": "fill",
+                                                "imageAspectRatio": "standard_landscape",
+                                                "imageHeight": "60vh"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "AlexaFooter",
+                                        "hintText": "You can say: \"Alexa, wait\", \"Alexa, repeat\", \"Alexa , stop\""
+                                    }
+                                ]
+                            },
+                            {
+                                "direction": "column",
+                                "justifyContent": "spaceAround",
+                                "type": "Container",
+                                "when": "${@viewportProfile == @hubRoundSmall}",
+                                "items": [
+                                    {
+                                        "type": "AlexaHeader",
+                                        "headerAttributionImage": "https://d2bhc2eaizqsmh.cloudfront.net/images/response_builder/go-senior-logo102x90.png",
+                                        "headerTitle": "Go Senior",
+                                        "headerSubtitle": "Health is wealth",
+                                        "headerDivider": true,
+                                        "headerBackgroundColor": "#194D1F"
+                                    },
+                                    {
+                                        "alignItems": "center",
+                                        "justifyContent": "start",
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "type": "AlexaImage",
+                                                "imageSource": "https://d2bhc2eaizqsmh.cloudfront.net/images/yoga-poses/Marjaryasana.PNG",
+                                                "imageScale": "fill",
+                                                "imageAspectRatio": "standard_landscape",
+                                                "imageHeight": "60vh",
+                                                "imageWidth": "100vw",
+                                                "imageRoundedCorner": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "layouts": {}
+}

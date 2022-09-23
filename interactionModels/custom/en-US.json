@@ -1,0 +1,154 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "go senior",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "WaitIntent",
+          "slots": [],
+          "samples": [
+            "time please",
+            "need some more time",
+            "wait for me",
+            "more time",
+            "one minute please",
+            "need time",
+            "wait",
+            "please wait"
+          ]
+        },
+        {
+          "name": "RepeatIntent",
+          "slots": [],
+          "samples": [
+            "repeat that please",
+            "repeat again",
+            "repeat",
+            "repeat the steps please"
+          ]
+        },
+        {
+          "name": "BalanceIntent",
+          "slots": [],
+          "samples": [
+            "how do I balance my self",
+            "balance missing",
+            "I am falling",
+            "unable to balance. What do I do",
+            "difficult to balance this",
+            "tips for balancing"
+          ]
+        },
+        {
+          "name": "PainIntent",
+          "slots": [],
+          "samples": [
+            "feeling slight pain",
+            "having neck pain",
+            "what do I do for pain",
+            "light pain ",
+            "mild pain",
+            "difficulty in savanasa"
+          ]
+        },
+        {
+          "name": "DescribeNameIntent",
+          "slots": [],
+          "samples": [
+            "Describe the name please",
+            "What is the name of this exercise",
+            "Which is this yoga",
+            "name of the exercise please"
+          ]
+        },
+        {
+          "name": "AdvantageIntent",
+          "slots": [],
+          "samples": [
+            "What is the advantage of this method",
+            "advantage of this",
+            "what is the advantage"
+          ]
+        },
+        {
+          "name": "AvoidIntent",
+          "slots": [],
+          "samples": [
+            "When to avoid this method",
+            "when to avoid this"
+          ]
+        },
+        {
+          "name": "SpineIntent",
+          "slots": [],
+          "samples": [
+            "How to bend the spine",
+            "Not able to bend the spine",
+            "Need help with the spine shape",
+            "How to get arch shape"
+          ]
+        },
+        {
+          "name": "ChooseLevel",
+          "slots": [
+            {
+              "name": "exeLevel",
+              "type": "level"
+            }
+          ],
+          "samples": [
+            "{exeLevel} please",
+            "{exeLevel}",
+            "I will go for {exeLevel}",
+            "select {exeLevel}",
+            "choose level {exeLevel}",
+            "level choice {exeLevel}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "difficult"
+              }
+            },
+            {
+              "name": {
+                "value": "medium"
+              }
+            },
+            {
+              "name": {
+                "value": "easy"
+              }
+            }
+          ],
+          "name": "level"
+        }
+      ]
+    }
+  },
+  "version": "30"
+}
